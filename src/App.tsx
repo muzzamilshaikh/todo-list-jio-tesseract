@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import { StylesProvider } from "@material-ui/core";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import GlobalStyle from "./globalStyles";
+import TodoScreen from "./screens/TodoScreen";
+
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const App = () => (
+  <StylesProvider injectFirst>
+    <Container>
+      <GlobalStyle />
+      <TodoScreen />
+    </Container>
+  </StylesProvider>
+);
 
 export default App;
